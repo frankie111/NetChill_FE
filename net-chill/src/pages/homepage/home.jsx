@@ -1,3 +1,6 @@
+import Button from 'react-bootstrap/Button';
+import './home.css';
+
 const Home = () => {
   return (
     <div>

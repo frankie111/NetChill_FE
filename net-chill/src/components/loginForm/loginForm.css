@@ -33,6 +33,11 @@
   padding: 1.25rem 2.813rem 1.25rem 1.25rem;
 }
 
+.input-box input:focus {
+  border-color: white;
+  box-shadow: 0 0 0.625rem rgba(255, 255, 255, 0.2);
+}
+
 .input-box input::placeholder {
   color: white;
 }
@@ -71,7 +76,7 @@
   height: 2.4rem;
   background: white;
   outline: none;
-  border: none;
+  border: 0.125rem solid rgba(0, 0, 0, 0.3);
   border-radius: 2.5rem;
   box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
   cursor: pointer;
@@ -80,6 +85,13 @@
   font-weight: 700;
 }
 
+.wrapper button:hover {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.wrapper button:active {
+  transform: scale(0.98);
+}
 .wrapper .register-link {
   font-size: 0.9rem;
   text-align: center;

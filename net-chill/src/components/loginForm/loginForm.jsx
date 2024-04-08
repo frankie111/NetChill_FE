@@ -10,11 +10,11 @@ const LoginForm = () => {
         <h1>Login</h1>
         <div className="input-box">
           <input type="text" placeholder="Email" required />
-          <MdEmail className="icon"/>
+          <MdEmail className="icon" />
         </div>
         <div className="input-box">
           <input type="password" placeholder="Password" required />
-          <FaLock className="icon"/>
+          <FaLock className="icon" />
         </div>
 
         <div className="remember-forget">
@@ -28,7 +28,9 @@ const LoginForm = () => {
         <button type="submit">Login</button>
 
         <div className="register-link">
-          <p>Don't have an account?<a href="#">Register</a></p>
+          <p>
+            Don't have an account?<a href="#">Register</a>
+          </p>
         </div>
       </form>
     </div>

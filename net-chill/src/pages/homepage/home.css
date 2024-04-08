@@ -4,3 +4,20 @@ body {
   background-size: cover;
   height: 100vh;
 }
+
+.title {
+  font-size: 2.5rem;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 1rem;
+}
+
+.home-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, transparent 50%, black 100%);
+}

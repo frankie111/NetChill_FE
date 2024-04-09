@@ -86,12 +86,17 @@
 }
 
 .wrapper button:hover {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .wrapper button:active {
   transform: scale(0.98);
 }
+
+.wrapper button:focus {
+  border: 0.125rem solid rgba(0, 0, 0, 0.6);
+}
+
 .wrapper .register-link {
   font-size: 0.9rem;
   text-align: center;

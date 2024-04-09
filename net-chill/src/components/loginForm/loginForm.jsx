@@ -1,19 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import "./loginForm.css";
 import { MdEmail } from "react-icons/md";
 import { FaLock } from "react-icons/fa";
 
-const LoginForm = (props) => {
+const LoginForm = ({ onSwitchToRegister, onLogin }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onLogin({ email, password });
+  };
+
   return (
     <div className="wrapper">
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <h1>Login</h1>
         <div className="input-box">
-          <input type="text" placeholder="Email" required />
+          <input
+            type="email"
+            placeholder="Email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <MdEmail className="icon" />
         </div>
         <div className="input-box">
-          <input type="password" placeholder="Password" required />
+          <input
+            type="password"
+            placeholder="Password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <FaLock className="icon" />
         </div>
 
@@ -30,7 +50,7 @@ const LoginForm = (props) => {
         <div className="register-link">
           <p>
             Don't have an account?
-            <a href="#" onClick={props.onSwitchToRegister}>
+            <a href="#" onClick={onSwitchToRegister}>
               Register
             </a>
           </p>

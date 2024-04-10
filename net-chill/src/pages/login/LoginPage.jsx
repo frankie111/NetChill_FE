@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
-import "./home.css";
+import "./LoginPage.css";
 import LoginForm from "../../components/loginForm/loginForm";
 import RegisterForm from "../../components/registerForm/registerForm";
 
@@ -11,7 +11,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../../firebase";
 
-const Home = ({ user }) => {
+const LoginPage = ({ user }) => {
   const [isRegistering, setIsRegistering] = useState(false);
 
   const handleSwitchToLogin = () => {
@@ -75,11 +75,11 @@ const Home = ({ user }) => {
   };
 
   if (user) {
-    return <Navigate to="/movies"></Navigate>;
+    return <Navigate to="/browse"></Navigate>;
   }
 
   return (
-    <div className="home-container">
+    <div className="login-container">
       <h1 className="title">NetChill</h1>
       {isRegistering ? (
         <RegisterForm
@@ -96,4 +96,4 @@ const Home = ({ user }) => {
   );
 };
 
-export default Home;
+export default LoginPage;

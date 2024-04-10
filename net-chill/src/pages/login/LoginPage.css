@@ -1,12 +1,4 @@
-body {
-  background-image: url("../../assets/background.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-}
-
-.title {
+.login-container .title {
   font-size: 2.5rem;
   color: white;
   position: absolute;
@@ -14,11 +6,15 @@ body {
   left: 1rem;
 }
 
-.home-container {
+.login-container {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background: radial-gradient(circle at center, transparent 50%, black 100%);
+  background-image: url("../../assets/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }

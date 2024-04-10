@@ -1,15 +1,14 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { auth } from "./firebase";
 import "./App.css";
-import Home from "./pages/homepage/home";
-import Header from "./components/header/header";
+import LoginPage from "./pages/login/LoginPage";
 import ProtectedRoute from "./components/protectedRoute";
-import Movies from "./pages/movies/movies";
+import BrowsePage from "./pages/browse/BrowsePage";
+import Navbar from "./components/navbar/Navbar";
 
-function AppWithHeader() {
-  const location = useLocation();
+function App() {
   const [user, setUser] = useState(null);
   const [isFetching, setIsFetching] = useState(true);
 
@@ -32,28 +31,20 @@ function AppWithHeader() {
   }
 
   return (
-    <>
-      {location.pathname !== "/" && <Header />}
+    <div className="App">
+      {user && <Navbar />}
       <Routes>
-        <Route index path="/" element={<Home user={user} />} />
+        <Route index path="/" element={<LoginPage user={user} />} />
         <Route
-          path="/movies"
+          path="/browse"
           element={
             <ProtectedRoute user={user}>
-              <Movies />
+              <BrowsePage />
             </ProtectedRoute>
           }
         />
       </Routes>
-    </>
-  );
-}
-
-function App() {
-  return (
-    <BrowserRouter>
-      <AppWithHeader />
-    </BrowserRouter>
+    </div>
   );
 }
 

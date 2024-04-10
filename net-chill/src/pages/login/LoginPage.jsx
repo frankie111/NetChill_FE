@@ -79,19 +79,21 @@ const LoginPage = ({ user }) => {
   }
 
   return (
-    <div className="login-container">
-      <h1 className="title">NetChill</h1>
-      {isRegistering ? (
-        <RegisterForm
-          onSwitchToLogin={handleSwitchToLogin}
-          onRegister={handleRegister}
-        />
-      ) : (
-        <LoginForm
-          onSwitchToRegister={handleSwitchToRegister}
-          onLogin={handleLogin}
-        />
-      )}
+    <div className="background-container">
+      <div className="login-container">
+        <h1 className="title">NetChill</h1>
+        {isRegistering ? (
+          <RegisterForm
+            onSwitchToLogin={handleSwitchToLogin}
+            onRegister={handleRegister}
+          />
+        ) : (
+          <LoginForm
+            onSwitchToRegister={handleSwitchToRegister}
+            onLogin={handleLogin}
+          />
+        )}
+      </div>
     </div>
   );
 };

@@ -7,6 +7,7 @@ import LoginPage from "./pages/login/LoginPage";
 import ProtectedRoute from "./components/protectedRoute";
 import BrowsePage from "./pages/browse/BrowsePage";
 import Navbar from "./components/navbar/Navbar";
+import MyAccountPage from "./pages/myAccount/MyAccountPage";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -40,6 +41,14 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <BrowsePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/my-account"
+          element={
+            <ProtectedRoute user={user}>
+              <MyAccountPage />
             </ProtectedRoute>
           }
         />

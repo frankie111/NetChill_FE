@@ -19,19 +19,21 @@ const Navbar = () => {
 
   return (
     <nav>
-        <Link to="/browse" className="title">NetChill</Link>
+      <Link to="/browse" className="title">
+        NetChill
+      </Link>
       <ul>
         <li>
           <NavLink to="/browse">Browse</NavLink>
         </li>
         <li>
-          <NavLink>Services</NavLink>
+          <NavLink to="/my-account">My Account</NavLink>
         </li>
+
         <li>
-          <NavLink>Contact</NavLink>
+          <button onClick={handleSignOut}>Sign Out</button>
         </li>
       </ul>
-      {/* <button onClick={handleSignOut}>Sign Out</button> */}
     </nav>
   );
 };

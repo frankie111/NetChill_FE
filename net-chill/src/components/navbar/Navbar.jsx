@@ -20,42 +20,44 @@ const Navbar = () => {
   };
 
   return (
-    <nav>
-      <Link to="/browse" className="title">
-        NetChill
-      </Link>
+    <div className="nav-container">
+      <nav>
+        <Link to="/browse" className="title">
+          NetChill
+        </Link>
 
-      <form>
-        <div className="search-box">
-          <input type="text" placeholder="search" className="search" />
-          <FaSearch className="icon"/>
+        <form>
+          <div className="search-box">
+            <input type="text" placeholder="search" className="search" />
+            <FaSearch className="icon" />
+          </div>
+        </form>
+
+        <div
+          className="menu"
+          onClick={() => {
+            setMenuOpen(!menuOpen);
+          }}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-      </form>
-
-      <div
-        className="menu"
-        onClick={() => {
-          setMenuOpen(!menuOpen);
-        }}
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul className={menuOpen ? "open" : ""}>
-        <li>
-          <NavLink to="/browse">Browse</NavLink>
-        </li>
-        <li>
-          <NavLink to="/my-account">My Account</NavLink>
-        </li>
-        <li>
-          <NavLink to="/" onClick={handleSignOut}>
-            Sign Out
-          </NavLink>
-        </li>
-      </ul>
-    </nav>
+        <ul className={menuOpen ? "open" : ""}>
+          <li>
+            <NavLink to="/browse">Browse</NavLink>
+          </li>
+          <li>
+            <NavLink to="/my-account">My Account</NavLink>
+          </li>
+          <li>
+            <NavLink to="/" onClick={handleSignOut}>
+              Sign Out
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+    </div>
   );
 };
 

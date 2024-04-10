@@ -34,15 +34,17 @@ const BrowsePage = () => {
 
   return (
     <div className="browse-container">
-      {movies.map((movie) => (
-        <MovieCard
-          key={movie.id}
-          title={movie.original_title}
-          overview={movie.overview}
-          rating={movie.vote_average}
-          image={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
-        />
-      ))}
+      <div className="browse-content">
+        {movies.map((movie) => (
+          <MovieCard
+            key={movie.id}
+            title={movie.original_title}
+            overview={movie.overview}
+            rating={movie.vote_average}
+            image={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
+          />
+        ))}
+      </div>
     </div>
   );
 };

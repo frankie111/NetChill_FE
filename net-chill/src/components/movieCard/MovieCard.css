@@ -1,6 +1,9 @@
 .movie {
-  width: 16rem;
-  height: 30rem;
+  width: calc(
+    (80em - (6 * 2rem)) / 6
+  ); /* 5 cards, 2rem total margin per card */
+  height: auto;
+  /* max-height: 27rem; */
   margin: 1rem;
   border-radius: 3px;
   box-shadow: 0.2px 4px 5px rgba(0, 0, 0, 0.1);
@@ -23,7 +26,7 @@
 
 .movie .movie-info h3 {
   margin-top: 0;
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .movie .movie-info span {
@@ -45,18 +48,18 @@
   color: red;
 }
 
-.overview{
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: white;
-    padding: 1rem;
-    max-height: 100%;
-    transform: translateY(101%);
-    transition: transform 0.3s ease-in;
+.overview {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  padding: 1rem;
+  max-height: 100%;
+  transform: translateY(101%);
+  transition: transform 0.3s ease-in;
 }
 
-.movie:hover .overview{
-    transform: translateY(0);
+.movie:hover .overview {
+  transform: translateY(0);
 }

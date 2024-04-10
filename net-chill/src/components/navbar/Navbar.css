@@ -2,15 +2,20 @@
   background-color: #1d4ed8;
 }
 
-nav {
+.nav-container {
+  background-color: var(--secondary-color);
+}
+
+.nav-container nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--secondary-color);
   position: sticky;
   top: 0;
   padding: 0;
   z-index: 1000;
+  max-width: 80em;
+  margin: 0 auto;
 }
 
 nav .title {
@@ -19,11 +24,13 @@ nav .title {
   margin: 1rem;
   font-weight: bold;
   text-decoration: none;
+  margin-right: auto;
 }
 
 nav ul {
   display: flex;
   margin-bottom: 0;
+  margin-left: auto;
 }
 
 nav ul li {
@@ -61,9 +68,9 @@ nav .menu span {
   border-radius: 0.2rem;
 }
 
-nav .search-box{
-    position: relative;
-    width: 20rem;
+nav .search-box {
+  position: relative;
+  width: 20rem;
 }
 
 .search-box .search {

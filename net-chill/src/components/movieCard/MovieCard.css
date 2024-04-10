@@ -21,12 +21,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 1rem 1rem;
+  padding: 0.5rem 0.5rem 0.5rem;
 }
 
 .movie .movie-info h3 {
   margin-top: 0;
-  font-size: 1.5rem;
+  font-size: 1rem;
+  max-height: 4rem; /* Adjust as needed */
+  overflow: hidden;
+  /* text-overflow: ellipsis; */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Number of lines to display before cutting off text */
+  -webkit-box-orient: vertical;
 }
 
 .movie .movie-info span {
@@ -58,6 +64,8 @@
   max-height: 100%;
   transform: translateY(101%);
   transition: transform 0.3s ease-in;
+  font-size: 0.8rem;
+  overflow: auto;
 }
 
 .movie:hover .overview {

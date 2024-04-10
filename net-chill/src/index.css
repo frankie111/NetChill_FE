@@ -1,8 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
 :root {
-  --primary-color: #22254b;
-  --secondary-color: #373b69;
+  --primary-color: #000000;
+  --secondary-color: #3E065F;
+  --tertiary-color: #700B97;
+  /* --quaternary-color: #8E05C2; */
+  --quaternary-color: #7d04ad;
 }
 
 code {

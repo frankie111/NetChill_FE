@@ -6,7 +6,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0f172a;
+  background-color: var(--secondary-color);
   position: sticky;
   top: 0;
   padding: 0;
@@ -58,6 +58,25 @@ nav .menu span {
   width: 100%;
   background-color: white;
   border-radius: 0.2rem;
+}
+
+.search{
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    padding: 0.25rem 1rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    color: white;
+    font-family: inherit;
+}
+
+.search:focus{
+    outline: none;
+    background-color: var(--primary-color);
+}
+
+.search::placeholder{
+    color: #7378c5;
 }
 
 @media (max-width: 480px) {

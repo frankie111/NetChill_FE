@@ -24,7 +24,7 @@ const Navbar = () => {
         NetChill
       </Link>
 
-      <form id="form">
+      <form>
         <input type="text" placeholder="search" className="search" />
       </form>
 

@@ -29,9 +29,8 @@ const Navbar = () => {
         <li>
           <NavLink to="/my-account">My Account</NavLink>
         </li>
-
         <li>
-          <button onClick={handleSignOut}>Sign Out</button>
+          <NavLink to="/" onClick={handleSignOut}>Sign Out</NavLink>
         </li>
       </ul>
     </nav>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleSignOut = async () => {
     try {
@@ -22,7 +23,14 @@ const Navbar = () => {
       <Link to="/browse" className="title">
         NetChill
       </Link>
-      <ul>
+      <div className="menu" onClick={() => {
+        setMenuOpen(!menuOpen);
+      }}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul className={menuOpen ? "open" : ""}>
         <li>
           <NavLink to="/browse">Browse</NavLink>
         </li>
@@ -30,7 +38,9 @@ const Navbar = () => {
           <NavLink to="/my-account">My Account</NavLink>
         </li>
         <li>
-          <NavLink to="/" onClick={handleSignOut}>Sign Out</NavLink>
+          <NavLink to="/" onClick={handleSignOut}>
+            Sign Out
+          </NavLink>
         </li>
       </ul>
     </nav>

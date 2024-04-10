@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import MovieCard from "../../components/movieCard/MovieCard";
 import "./BrowsePage.css";
 import { getIdToken } from "firebase/auth";
 import { auth } from "../../firebase";
 
 const BrowsePage = () => {
+  const [movies, setMovies] = useState([]);
+
   const fetchMovies = async () => {
     try {
       const token = await getIdToken(auth.currentUser);
@@ -19,6 +21,7 @@ const BrowsePage = () => {
         throw new Error("Failed to fetch movies");
       }
       const data = await response.json();
+      setMovies(data.movies || []);
       console.log(data);
     } catch (error) {
       console.error("Error fetching movies", error);
@@ -31,10 +34,15 @@ const BrowsePage = () => {
 
   return (
     <div className="browse-container">
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
+      {movies.map((movie) => (
+        <MovieCard
+          key={movie.id}
+          title={movie.original_title}
+          overview={movie.overview}
+          rating={movie.vote_average}
+          image={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
+        />
+      ))}
     </div>
   );
 };

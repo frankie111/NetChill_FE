@@ -4,6 +4,7 @@ import { auth } from "../../firebase";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { FaSearch } from "react-icons/fa";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -25,7 +26,10 @@ const Navbar = () => {
       </Link>
 
       <form>
-        <input type="text" placeholder="search" className="search" />
+        <div className="search-box">
+          <input type="text" placeholder="search" className="search" />
+          <FaSearch className="icon"/>
+        </div>
       </form>
 
       <div

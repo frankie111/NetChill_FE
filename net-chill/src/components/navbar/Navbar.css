@@ -10,6 +10,7 @@ nav {
   position: sticky;
   top: 0;
   padding: 0;
+  z-index: 1000;
 }
 
 nav .title {
@@ -60,23 +61,39 @@ nav .menu span {
   border-radius: 0.2rem;
 }
 
-.search{
-    background-color: transparent;
-    border: 2px solid var(--primary-color);
-    padding: 0.25rem 1rem;
-    border-radius: 50px;
-    font-size: 1rem;
-    color: white;
-    font-family: inherit;
+nav .search-box{
+    position: relative;
+    width: 20rem;
 }
 
-.search:focus{
-    outline: none;
-    background-color: var(--primary-color);
+.search-box .search {
+  position: relative;
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  padding: 0.25rem 1rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  color: white;
+  font-family: inherit;
+  width: 100%;
 }
 
-.search::placeholder{
-    color: #7378c5;
+.search-box .search:focus {
+  outline: none;
+  background-color: var(--primary-color);
+}
+
+.search-box .search::placeholder {
+  color: #7378c5;
+}
+
+.search-box .icon {
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  font-size: 1rem;
+  transform: translateY(-50%);
+  color: white;
 }
 
 @media (max-width: 480px) {

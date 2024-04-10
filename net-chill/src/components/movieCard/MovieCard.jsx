@@ -1,25 +1,32 @@
 import React from "react";
 import "./MovieCard.css";
 
-const MovieCard = () => {
+const MovieCard = ({ title, overview, rating, image }) => {
+  const getRatingColor = () => {
+    if (rating >= 8) {
+      return "green";
+    }
+    if (rating >= 6) {
+      return "orange";
+    }
+    return "red";
+  };
+
   return (
     <div className="movie">
       <img
-        src="https://pbs.twimg.com/media/Ev-Q-JFVEAQDBns?format=jpg&name=large"
+        src={image || "https://via.placeholder.com/200"}
         alt="godzilla vs kong"
       />
 
       <div className="movie-info">
-        <h3>Movie title</h3>
-        <span className="green">9.8</span>
+        <h3>{title || "Movie title"}</h3>
+        <span className={getRatingColor()}>{rating || "N/A"}</span>
       </div>
 
       <div className="overview">
         <h3>Overview</h3>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi neque
-        repellendus error impedit, cupiditate, deserunt dicta, iste optio ab
-        asperiores fuga corrupti ipsam non unde. Illum sequi placeat aut
-        recusandae?
+        {overview || "No overview"}
       </div>
     </div>
   );

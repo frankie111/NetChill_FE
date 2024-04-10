@@ -23,9 +23,17 @@ const Navbar = () => {
       <Link to="/browse" className="title">
         NetChill
       </Link>
-      <div className="menu" onClick={() => {
-        setMenuOpen(!menuOpen);
-      }}>
+
+      <form id="form">
+        <input type="text" placeholder="search" className="search" />
+      </form>
+
+      <div
+        className="menu"
+        onClick={() => {
+          setMenuOpen(!menuOpen);
+        }}
+      >
         <span></span>
         <span></span>
         <span></span>

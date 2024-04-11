@@ -13,7 +13,7 @@ code {
     monospace;
 }
 
-body {
+html, body {
   background-color: var(--primary-color);
   font-family: "Poppins", sans-serif;
 }

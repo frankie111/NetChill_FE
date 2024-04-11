@@ -81,19 +81,23 @@ const BrowsePage = ({ searchTerm }) => {
             image={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
           />
         ))}
+      </div>
 
-        <div className="pagination">
-          <div
-            className={page === 1 ? "page disabled" : "page"}
-            id="prev"
-            onClick={handlePrevPage}
-          >
-            Prev
-          </div>
-          <div className="current">{`${page}/${pageCount}`}</div>
-          <div className={page === pageCount ? "page disabled" : "page"} id="next" onClick={handleNextPage}>
-            Next
-          </div>
+      <div className="pagination">
+        <div
+          className={page === 1 ? "page disabled" : "page"}
+          id="prev"
+          onClick={handlePrevPage}
+        >
+          Prev
+        </div>
+        <div className="current">{`${page}/${pageCount}`}</div>
+        <div
+          className={page === pageCount ? "page disabled" : "page"}
+          id="next"
+          onClick={handleNextPage}
+        >
+          Next
         </div>
       </div>
     </div>

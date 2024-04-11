@@ -12,6 +12,11 @@ import MyAccountPage from "./pages/myAccount/MyAccountPage";
 function App() {
   const [user, setUser] = useState(null);
   const [isFetching, setIsFetching] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -33,14 +38,14 @@ function App() {
 
   return (
     <div className="App">
-      {user && <Navbar />}
+      {user && <Navbar onSearch={handleSearch} />}
       <Routes>
         <Route index path="/" element={<LoginPage user={user} />} />
         <Route
           path="/browse"
           element={
             <ProtectedRoute user={user}>
-              <BrowsePage />
+              <BrowsePage searchTerm={searchTerm} />
             </ProtectedRoute>
           }
         />

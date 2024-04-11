@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { FaSearch } from "react-icons/fa";
 
-const Navbar = () => {
+const Navbar = ({ onSearch }) => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -19,6 +19,11 @@ const Navbar = () => {
     }
   };
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    onSearch(e.target.elements[0].value);
+  };
+
   return (
     <div className="nav-container">
       <nav>
@@ -26,7 +31,7 @@ const Navbar = () => {
           NetChill
         </Link>
 
-        <form>
+        <form onSubmit={handleSearch}>
           <div className="search-box">
             <input type="text" placeholder="search" className="search" />
             <FaSearch className="icon" />

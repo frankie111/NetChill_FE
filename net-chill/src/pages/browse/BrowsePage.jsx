@@ -4,7 +4,7 @@ import "./BrowsePage.css";
 import { getIdToken } from "firebase/auth";
 import { auth } from "../../firebase";
 
-const BrowsePage = () => {
+const BrowsePage = ({ searchTerm }) => {
   const [movies, setMovies] = useState([]);
 
   const fetchMovies = async () => {
@@ -28,9 +28,35 @@ const BrowsePage = () => {
     }
   };
 
+  const fetchMoviesBySearch = async () => {
+    try {
+      const token = await getIdToken(auth.currentUser);
+      const response = await fetch(`https://localhost:8000/movies/${searchTerm}`, {
+        method: "GET",
+        headers: {
+          Authorization: token,
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        throw new Error("Failed to fetch movies by search");
+      }
+      const data = await response.json();
+      setMovies(data.movies || []);
+      console.log(data);
+    } catch (error) {
+      console.error("Error fetching movies by search", error);
+    }
+  };
+
   useEffect(() => {
     fetchMovies();
   }, []);
+
+  useEffect(() => {
+    if (searchTerm)
+    fetchMoviesBySearch();
+  }, [searchTerm]);
 
   return (
     <div className="browse-container">

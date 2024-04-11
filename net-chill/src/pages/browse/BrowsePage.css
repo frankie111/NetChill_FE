@@ -1,3 +1,11 @@
+.browse-container {
+  align-items: center;
+  background-color: var(--primary-color);
+  padding: 1.25rem 0;
+  width: 100%;
+  height: 100%;
+}
+
 .browse-container .browse-content {
   display: flex;
   flex-wrap: wrap;
@@ -5,13 +13,6 @@
   max-width: 80em;
   height: 100%;
   margin: 0 auto;
-}
-
-.browse-container {
-  align-items: center;
-  background-color: var(--primary-color);
-  width: 100%;
-  height: 100%;
 }
 
 .browse-container .pagination {

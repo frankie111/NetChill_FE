@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/protectedRoute";
 import BrowsePage from "./pages/browse/BrowsePage";
 import Navbar from "./components/navbar/Navbar";
 import MyAccountPage from "./pages/myAccount/MyAccountPage";
+import "./App.css"
 
 function App() {
   const [user, setUser] = useState(null);

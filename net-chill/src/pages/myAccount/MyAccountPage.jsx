@@ -38,6 +38,7 @@ const MyAccountPage = () => {
         <div className="profile-card-container">
           <ProfileCard username={userData.username} email={userData.email}/>
         </div>
+
       </div>
     </div>
   );

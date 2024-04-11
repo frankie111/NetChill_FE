@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./loginForm.css";
+import "./LoginForm.css";
 import { MdEmail } from "react-icons/md";
 import { FaLock } from "react-icons/fa";
 

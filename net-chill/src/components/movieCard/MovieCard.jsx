@@ -16,8 +16,8 @@ const MovieCard = ({ title, overview, rating, image }) => {
   return (
     <div className="movie">
       <img
-        src={image || "https://via.placeholder.com/200"}
-        alt="godzilla vs kong"
+        src={image || placeholderImage}
+        alt="Missing Poster"
       />
 
       <div className="movie-info">

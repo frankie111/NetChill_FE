@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { FaSearch } from "react-icons/fa";
@@ -31,12 +31,14 @@ const Navbar = ({ onSearch }) => {
           NetChill
         </Link>
 
-        <form onSubmit={handleSearch}>
-          <div className="search-box">
-            <input type="text" placeholder="search" className="search" />
-            <FaSearch className="icon" />
-          </div>
-        </form>
+        {location.pathname !== "/my-account" && (
+          <form onSubmit={handleSearch}>
+            <div className="search-box">
+              <input type="text" placeholder="search" className="search" />
+              <FaSearch className="icon" />
+            </div>
+          </form>
+        )}
 
         <div
           className="menu"

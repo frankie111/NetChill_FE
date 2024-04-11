@@ -14,3 +14,15 @@
   height: 100%;
   min-height: 100vh;
 }
+
+.browse-container .pagination{
+  display: flex;
+  color: white;
+  margin: 0.625rem 1.875rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination .page{
+  padding: 1.25rem;
+}

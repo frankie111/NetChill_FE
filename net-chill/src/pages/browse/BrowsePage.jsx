@@ -70,6 +70,12 @@ const BrowsePage = ({ searchTerm }) => {
             image={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
           />
         ))}
+
+        <div className="pagination">
+          <div className="page" id="prev">Prev</div>
+          <div className="current">1</div>
+          <div className="page" id="next">Next</div>
+        </div>
       </div>
     </div>
   );

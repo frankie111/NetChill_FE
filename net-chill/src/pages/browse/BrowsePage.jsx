@@ -6,11 +6,13 @@ import { auth } from "../../firebase";
 
 const BrowsePage = ({ searchTerm }) => {
   const [movies, setMovies] = useState([]);
+  const [page, setPage] = useState(1);
+  const [pageCount, setPageCount] = useState(1);
 
   const fetchMovies = async () => {
     try {
       const token = await getIdToken(auth.currentUser);
-      const response = await fetch(`https://localhost:8000/movies/`, {
+      const response = await fetch(`https://localhost:8000/movies/${page}`, {
         method: "GET",
         headers: {
           Authorization: token,
@@ -22,6 +24,7 @@ const BrowsePage = ({ searchTerm }) => {
       }
       const data = await response.json();
       setMovies(data.movies || []);
+      setPageCount(data.page_count || 1);
       console.log(data);
     } catch (error) {
       console.error("Error fetching movies", error);
@@ -31,18 +34,22 @@ const BrowsePage = ({ searchTerm }) => {
   const fetchMoviesBySearch = async () => {
     try {
       const token = await getIdToken(auth.currentUser);
-      const response = await fetch(`https://localhost:8000/movies/${searchTerm}`, {
-        method: "GET",
-        headers: {
-          Authorization: token,
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `https://localhost:8000/movies/${searchTerm}/${page}`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: token,
+            "Content-Type": "application/json",
+          },
+        }
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch movies by search");
       }
       const data = await response.json();
       setMovies(data.movies || []);
+      setPageCount(data.page_count || 1);
       console.log(data);
     } catch (error) {
       console.error("Error fetching movies by search", error);
@@ -50,13 +57,17 @@ const BrowsePage = ({ searchTerm }) => {
   };
 
   useEffect(() => {
-    fetchMovies();
-  }, []);
+    if (searchTerm) fetchMoviesBySearch();
+    else fetchMovies();
+  }, [page, searchTerm]);
 
-  useEffect(() => {
-    if (searchTerm)
-    fetchMoviesBySearch();
-  }, [searchTerm]);
+  const handleNextPage = () => {
+    if (page < pageCount) setPage(page + 1);
+  };
+
+  const handlePrevPage = () => {
+    if (page > 1) setPage(page - 1);
+  };
 
   return (
     <div className="browse-container">
@@ -72,9 +83,17 @@ const BrowsePage = ({ searchTerm }) => {
         ))}
 
         <div className="pagination">
-          <div className="page" id="prev">Prev</div>
-          <div className="current">1</div>
-          <div className="page" id="next">Next</div>
+          <div
+            className={page === 1 ? "page disabled" : "page"}
+            id="prev"
+            onClick={handlePrevPage}
+          >
+            Prev
+          </div>
+          <div className="current">{`${page}/${pageCount}`}</div>
+          <div className={page === pageCount ? "page disabled" : "page"} id="next" onClick={handleNextPage}>
+            Next
+          </div>
         </div>
       </div>
     </div>

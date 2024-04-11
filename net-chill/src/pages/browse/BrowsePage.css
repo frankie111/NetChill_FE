@@ -15,7 +15,7 @@
   min-height: 100vh;
 }
 
-.browse-container .pagination{
+.browse-container .pagination {
   display: flex;
   color: white;
   margin: 0.625rem 1.875rem;
@@ -23,6 +23,20 @@
   justify-content: center;
 }
 
-.pagination .page{
+.pagination .page {
   padding: 1.25rem;
+  cursor: pointer;
+}
+
+.pagination .page.disabled {
+  cursor: default;
+  color: grey;
+}
+
+.pagination .current {
+  padding: 0.625rem 1.25rem;
+  border-radius: 3.125rem;
+  border: 5px solid var(--secondary-color);
+  font-size: 1.25rem;
+  font-weight: 600;
 }

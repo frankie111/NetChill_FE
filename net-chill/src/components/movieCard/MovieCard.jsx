@@ -1,5 +1,6 @@
 import React from "react";
 import "./MovieCard.css";
+import placeholderImage from "../../assets/placeholder-image.png";
 
 const MovieCard = ({ title, overview, rating, image }) => {
   const getRatingColor = () => {

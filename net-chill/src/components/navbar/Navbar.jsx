@@ -24,10 +24,16 @@ const Navbar = ({ onSearch }) => {
     onSearch(e.target.elements[0].value);
   };
 
+  const handleBrowseClick = () => {
+    e.preventDefault();
+    onSearch("");
+    navigate("/browse");
+  };
+
   return (
     <div className="nav-container">
       <nav>
-        <Link to="/browse" className="title">
+        <Link to="/browse" className="title" onClick={handleBrowseClick}>
           NetChill
         </Link>
 

@@ -3,6 +3,7 @@ import { getIdToken } from "firebase/auth";
 import { auth } from "../../firebase";
 import ProfileCard from "../../components/profileCard/ProfileCard";
 import "./MyAccountPage.css";
+import Watchlist from "../../components/watchlist/Watchlist";
 
 const MyAccountPage = () => {
   const [userData, setUserData] = useState({});
@@ -10,13 +11,16 @@ const MyAccountPage = () => {
   const fetchUserData = async () => {
     try {
       const token = await getIdToken(auth.currentUser);
-      const response = await fetch(`https://localhost:8000/user/${auth.currentUser.uid}`, {
-        method: "GET",
-        headers: {
-          Authorization: token,
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `https://localhost:8000/user/${auth.currentUser.uid}`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: token,
+            "Content-Type": "application/json",
+          },
+        }
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch user data");
       }
@@ -36,9 +40,12 @@ const MyAccountPage = () => {
     <div className="account-container">
       <div className="account-content">
         <div className="profile-card-container">
-          <ProfileCard username={userData.username} email={userData.email}/>
+          <ProfileCard username={userData.username} email={userData.email} />
         </div>
 
+        <div className="watchlist-container">
+          <Watchlist />
+        </div>
       </div>
     </div>
   );

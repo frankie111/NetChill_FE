@@ -9,7 +9,7 @@ const BrowsePage = ({ searchTerm }) => {
   const [page, setPage] = useState(1);
   const [pageCount, setPageCount] = useState(1);
 
-  const fetchMovies = async () => {
+  const fetchMostPopularMovies = async () => {
     try {
       const token = await getIdToken(auth.currentUser);
       const response = await fetch(`https://localhost:8000/movies/${page}`, {
@@ -58,7 +58,7 @@ const BrowsePage = ({ searchTerm }) => {
 
   useEffect(() => {
     if (searchTerm) fetchMoviesBySearch();
-    else fetchMovies();
+    else fetchMostPopularMovies();
   }, [page, searchTerm]);
 
   const handleNextPage = () => {
